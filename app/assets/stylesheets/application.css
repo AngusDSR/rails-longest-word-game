@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+body {
+  padding: 18px;
+}
+
+.text-shadow-dark {
+  text-shadow: 2px 2px #3e3e3e;
+}
+.text-shadow-light {
+  text-shadow: 1px 1px #dadada;
+}

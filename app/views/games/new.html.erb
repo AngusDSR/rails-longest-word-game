@@ -1,9 +1,31 @@
-<h1>Test new game</h1>
-
-<h2>[Display letters here]</h2>
-
-<div>
+<h1 class="fw-bold mb-3 text-shadow-light">New game</h1>
+<hr>
+<h3>Letters grid</h3>
+<div class="w-80 p-2 mb-3 d-flex justify-content-between align-items-center bg-light border rounded">
 <% @letters.each do |letter| %>
-  <div><h3><%= letter %></h3></div>
+  <div class="w-100 text-center align-middle p-3">
+    <h3 class="text-shadow-dark bg-primary rounded border border-3 border-white shadow-sm text-white fw-bold py-3">
+      <%= letter %>
+    </h3>
+  </div>
 <% end %>
 </div>
+<hr>
+<div class="w-80 center p-3 align-items-center bg-warning opacity-75 rounded">
+  <form class="row" action="/score" method="post" data-turbo="false">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :letters, @letters %>
+  <%= hidden_field_tag :time_taken, (Time.now - @start_time) / 60 %>
+    <div class="col-auto px-1">
+      <label for="word" class="visually-hidden">Enter your word</label>
+      <input class="form-control border-warning" type="text"
+      name="word" id="word" placeholder="Enter your word here">
+    </div>
+    <div class="col-auto px-1">
+      <button type="submit" class="btn btn-primary fw-bold text-shadow-dark shadow-sm opacity-100"><i class="fa-solid fa-play me-2"></i>Submit</button>
+      <a href="" class="btn btn-danger fw-bold text-shadow-dark shadow-sm opacity-100"><i class="fa-solid fa-shuffle me-2"></i>Shuffle</a>
+    </div>
+  </form>
+</div>
+
+<form action=""></form>

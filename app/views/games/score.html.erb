@@ -1,0 +1,32 @@
+<h1 class="fw-bold mb-3 text-shadow-light">Score: <%= @results[:score] %></h1>
+<hr>
+<h3>Letters grid</h3>
+<div class="w-80 p-2 mb-3 d-flex justify-content-between align-items-center bg-light border rounded">
+<% @letters.each do |letter| %>
+  <div class="w-100 text-center align-middle p-3">
+    <h3 class="text-shadow-dark bg-primary rounded border border-3 border-white shadow-sm text-white fw-bold py-3"><%= letter %></h3>
+  </div>
+<% end %>
+</div>
+<h3 class="mt-2">Your word</h3>
+<div class="w-80 p-2 mb-3 d-flex justify-content-between align-items-center bg-light border rounded">
+<% @attempt_chars.each do |letter| %>
+  <div class="w-100 text-center align-middle p-3">
+    <h3 class="text-shadow-dark bg-danger rounded border border-3 border-white shadow-sm text-white fw-bold py-3"><%= letter %></h3>
+  </div>
+<% end %>
+<% @unused_letters.times do |char| %>
+  <div class="w-100 align-middle p-3">
+    <h3 class="bg-dark rounded border border-dark border-4 shadow-sm py-3"></h3>
+  </div>
+<% end %>
+</div>
+<hr>
+<h3><%= @results[:message] %></h3>
+<div class="w-80 p-4 bg-light border rounded">
+  <p class="fs-4"><b>Score:</b> <%= @results[:score] %></p>
+  <p class="fs-4"><b>Time taken:</b> <%= @time_taken %> seconds</p>
+  <p>
+    <%= link_to 'Play again', new_path, class: 'btn btn-primary mb-0 shadow-sm text-shadow-dark fw-bold text-decoration-none' %>
+  </p>
+</div>
